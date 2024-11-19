@@ -1,56 +1,82 @@
 import streamlit as st
+from chatbot import GroqChatbot
 
-# Set page config and title
-st.set_page_config(page_title="Groq Chatbot", page_icon=":robot_face:")
+# Initialize chatbot instance
+chatbot = GroqChatbot()
 
-# Sidebar Instructions
-st.sidebar.title("Groq Chatbot Instructions")
-st.sidebar.write("""
-Welcome to the Groq-powered chatbot! Ask me anything, and I'll respond quickly.
-""")
+# Streamlit app
+def main():
+    st.set_page_config(page_title="Groq Chatbot", page_icon="🤖", layout="wide")  # Set page layout
 
-# Display previous messages
-if 'messages' not in st.session_state:
-    st.session_state.messages = []
+    # Custom CSS for chat bubbles and styling
+    st.markdown("""
+        <style>
+            .chat-container {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 20px;
+            }
+            .chat-bubble {
+                padding: 10px 15px;
+                border-radius: 20px;
+                max-width: 80%;
+                margin-bottom: 10px;
+                background-color: #F1F1F1;
+                box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            }
+            .bot-bubble {
+                background-color: #e0f7fa;
+                align-self: flex-start;
+            }
+            .user-bubble {
+                background-color: #c8e6c9;
+                align-self: flex-end;
+            }
+            .chat-title {
+                font-size: 2rem;
+                font-weight: bold;
+                color: #333;
+                margin-bottom: 20px;
+            }
+            .chat-input {
+                width: 100%;
+                padding: 15px;
+                margin-top: 20px;
+                border-radius: 5px;
+                border: 1px solid #ccc;
+                font-size: 1rem;
+            }
+        </style>
+    """, unsafe_allow_html=True)
 
-# Custom HTML and CSS for bubbles and design
-st.markdown("""
-    <style>
-    .user-message {
-        background-color: #DCF8C6;
-        border-radius: 20px;
-        padding: 10px;
-        margin: 10px 0;
-        max-width: 75%;
-        text-align: left;
-    }
-    .bot-message {
-        background-color: #E5E5E5;
-        border-radius: 20px;
-        padding: 10px;
-        margin: 10px 0;
-        max-width: 75%;
-        text-align: left;
-    }
-    </style>
-""", unsafe_allow_html=True)
+    # App title
+    st.markdown("<h1 class='chat-title'>Groq Chatbot 🤖</h1>", unsafe_allow_html=True)
+    st.write("Hello! I'm your friendly Groq chatbot. Let's chat!")
 
-# Display messages
-for message in st.session_state.messages:
-    if message["role"] == "user":
-        st.markdown(f'<div class="user-message">{message["content"]}</div>', unsafe_allow_html=True)
-    else:
-        st.markdown(f'<div class="bot-message">{message["content"]}</div>', unsafe_allow_html=True)
+    # Initialize chat history in session state if not present
+    if "chat_history" not in st.session_state:
+        st.session_state["chat_history"] = []
 
-# User input
-user_input = st.text_area("Ask a question:", height=100)
+    # User input
+    user_input = st.text_input("You:", placeholder="Type your message here...", key="user_input", class_="chat-input")
 
-# Handle response and update chat
-if user_input:
-    st.session_state.messages.append({"role": "user", "content": user_input})
-
-    with st.spinner("Generating response..."):
-        response = conversation.predict(human_input=user_input)
-        st.session_state.messages.append({"role": "bot", "content": response})
+    if user_input:
+        # Generate a response using the chatbot
+        response = chatbot.get_response(user_input)
         
-    st.text_area("Ask a question:", "", key="input_field")
+        # Save conversation history
+        st.session_state["chat_history"].append({"user": user_input, "bot": response})
+
+    # Display chat history with chat bubbles
+    if st.session_state["chat_history"]:
+        chat_container = st.container()
+        with chat_container:
+            for chat in st.session_state["chat_history"]:
+                # Display user's message
+                st.markdown(f'<div class="chat-bubble user-bubble">{chat["user"]}</div>', unsafe_allow_html=True)
+                # Display bot's response
+                st.markdown(f'<div class="chat-bubble bot-bubble">{chat["bot"]}</div>', unsafe_allow_html=True)
+
+if __name__ == "__main__":
+    main()
