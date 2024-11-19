@@ -43,6 +43,6 @@ class GroqChatbot:
 
     def get_response(self, user_input):
         """
-        Generates a response from the chatbot.
+        Generates  responses from the chatbot.
         """
         return self.conversation.predict(human_input=user_input)
