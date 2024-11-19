@@ -6,7 +6,14 @@ from langchain.chains.conversation.memory import ConversationBufferWindowMemory
 from langchain_groq import ChatGroq
 
 # Set environment variables
-os.environ["GROQ_API_KEY"] = "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"
+from dotenv import load_dotenv
+import os
+
+# Load environment variables from .env file
+load_dotenv()
+
+# Access the API key
+os.environ["GROQ_API_KEY"] = os.getenv("GROQ_API_KEY")
 os.environ["TOKENIZERS_PARALLELISM"] = "false"  # To suppress HuggingFace warnings
 
 class GroqChatbot:
