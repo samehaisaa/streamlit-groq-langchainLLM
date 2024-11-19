@@ -1,30 +1,56 @@
 import streamlit as st
-from chatbot import GroqChatbot
 
-# Initialize chatbot instance
-chatbot = GroqChatbot()
+# Set page config and title
+st.set_page_config(page_title="Groq Chatbot", page_icon=":robot_face:")
 
-# Streamlit app
-def main():
-    st.title("Groq Chatbot 🤖")
-    st.write("Hello! I'm your friendly Groq chatbot. Let's chat!")
+# Sidebar Instructions
+st.sidebar.title("Groq Chatbot Instructions")
+st.sidebar.write("""
+Welcome to the Groq-powered chatbot! Ask me anything, and I'll respond quickly.
+""")
 
-    if "chat_history" not in st.session_state:
-        st.session_state["chat_history"] = []  # Initialize chat history
+# Display previous messages
+if 'messages' not in st.session_state:
+    st.session_state.messages = []
 
-    user_input = st.text_input("You:", placeholder="Type your message here...")
+# Custom HTML and CSS for bubbles and design
+st.markdown("""
+    <style>
+    .user-message {
+        background-color: #DCF8C6;
+        border-radius: 20px;
+        padding: 10px;
+        margin: 10px 0;
+        max-width: 75%;
+        text-align: left;
+    }
+    .bot-message {
+        background-color: #E5E5E5;
+        border-radius: 20px;
+        padding: 10px;
+        margin: 10px 0;
+        max-width: 75%;
+        text-align: left;
+    }
+    </style>
+""", unsafe_allow_html=True)
 
-    if user_input:
-        # Generate a response using the chatbot
-        response = chatbot.get_response(user_input)
-        # Save conversation history
-        st.session_state["chat_history"].append({"user": user_input, "bot": response})
+# Display messages
+for message in st.session_state.messages:
+    if message["role"] == "user":
+        st.markdown(f'<div class="user-message">{message["content"]}</div>', unsafe_allow_html=True)
+    else:
+        st.markdown(f'<div class="bot-message">{message["content"]}</div>', unsafe_allow_html=True)
 
-    # Display chat history
-    if st.session_state["chat_history"]:
-        for chat in st.session_state["chat_history"]:
-            st.write(f"**Semah:** {chat['user']}")
-            st.write(f"**dumb ugly bot:** {chat['bot']}")
+# User input
+user_input = st.text_area("Ask a question:", height=100)
 
-if __name__ == "__main__":
-    main()
+# Handle response and update chat
+if user_input:
+    st.session_state.messages.append({"role": "user", "content": user_input})
+
+    with st.spinner("Generating response..."):
+        response = conversation.predict(human_input=user_input)
+        st.session_state.messages.append({"role": "bot", "content": response})
+        
+    st.text_area("Ask a question:", "", key="input_field")
