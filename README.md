@@ -1,4 +1,4 @@
-# Streamlit Groq LangChain Chatbot
+# Academic Queries Assistant RAG
 
 This is a simple chatbot application that integrates **Groq API** and **LangChain** to provide fast responses. The app uses Streamlit as a frontend for interaction with users.
 

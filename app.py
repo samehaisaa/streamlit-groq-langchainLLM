@@ -6,7 +6,7 @@ chatbot = GroqChatbot()
 
 # Streamlit app
 def main():
-    st.title("Groq Chatbot 🤖")
+    st.title("Groq  🤖")
     st.write("Hello! I'm your friendly Groq chatbot. Let's chat!")
 
     if "chat_history" not in st.session_state:
