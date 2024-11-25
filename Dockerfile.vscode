@@ -1,0 +1,21 @@
+# Use an existing Python image as the base (or any other base image you prefer)
+FROM python:3.9-slim
+
+# Install VS Code dependencies
+RUN apt-get update && \
+    apt-get install -y wget gpg && \
+    wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > /usr/share/keyrings/microsoft-archive-keyring.gpg && \
+    echo "deb [arch=amd64 signed-by=/usr/share/keyrings/microsoft-archive-keyring.gpg] https://packages.microsoft.com/repos/vscode stable main" | tee /etc/apt/sources.list.d/vscode.list && \
+    apt-get update && \
+    apt-get install -y code
+
+# Clean up unnecessary files to reduce image size
+RUN apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+# Label the image
+LABEL maintainer="sameh@example.com" \
+      description="Base image with VS Code installed"
+
+# Default command (you can change it to whatever you need)
+CMD ["bash"]

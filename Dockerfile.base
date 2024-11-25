@@ -1,0 +1,19 @@
+# Use a slim Python image
+FROM python:3.9-slim
+
+# Install PyTorch and other shared dependencies
+RUN pip install --no-cache-dir torch==1.10.0 transformers==4.5.0
+
+# Install VS Code
+RUN apt update && \
+    apt install -y software-properties-common wget && \
+    wget -q https://packages.microsoft.com/repos/vscode/pool/main/c/code/code_1.68.0-1651541047_amd64.deb && \
+    dpkg -i code_1.68.0-1651541047_amd64.deb && \
+    apt install -f
+
+# Optional: Set environment variables for convenience
+ENV PIP_NO_CACHE_DIR=true
+
+# Label this image for easier management
+LABEL maintainer="sameh@example.com" \
+      description="Base image with PyTorch, Transformers, and VS Code installed"
