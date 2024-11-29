@@ -8,11 +8,10 @@ from langchain_groq import ChatGroq
 from dotenv import load_dotenv
 import os
 
-# Load environment variables from .env file
 load_dotenv()
 
 os.environ["GROQ_API_KEY"] = os.getenv("GROQ_API_KEY")
-os.environ["TOKENIZERS_PARALLELISM"] = "false"  # To suppress HuggingFace warnings
+os.environ["TOKENIZERS_PARALLELISM"] = "false"  # 
 
 class GroqChatbot:
     def __init__(self, model="llama3-8b-8192", memory_length=5):
