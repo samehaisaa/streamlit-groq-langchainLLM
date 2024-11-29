@@ -37,7 +37,7 @@ class GroqChatbot:
         self.conversation = LLMChain(
             llm=self.groq_chat,
             prompt=self.prompt,
-            verbose=False,
+            verbose=True,
             memory=self.memory,
         )
 
