@@ -1,26 +1,3 @@
-aiohappyeyeballs @ file:///home/conda/feedstock_root/build_artifacts/aiohappyeyeballs_1727779797566/work
-aiohttp @ file:///D:/bld/aiohttp_1731703345496/work
-aiosignal @ file:///home/conda/feedstock_root/build_artifacts/aiosignal_1667935791922/work
-altair==5.4.1
-annotated-types==0.7.0
-anyio @ file:///home/conda/feedstock_root/build_artifacts/anyio_1728935693959/work
-async-timeout @ file:///home/conda/feedstock_root/build_artifacts/async-timeout_1691763562544/work
-attrs @ file:///home/conda/feedstock_root/build_artifacts/attrs_1722977137225/work
-autopep8==2.0.4
-blinker==1.9.0
-Brotli @ file:///D:/bld/brotli-split_1725267609074/work
-cachetools==5.5.0
-certifi @ file:///home/conda/feedstock_root/build_artifacts/certifi_1725278078093/work/certifi
-cffi @ file:///D:/bld/cffi_1725560655177/work
-charset-normalizer @ file:///home/conda/feedstock_root/build_artifacts/charset-normalizer_1728479282467/work
-click==8.1.7
-colorama @ file:///home/conda/feedstock_root/build_artifacts/colorama_1666700638685/work
-distro @ file:///home/conda/feedstock_root/build_artifacts/distro_1704321475663/work
-exceptiongroup @ file:///home/conda/feedstock_root/build_artifacts/exceptiongroup_1720869315914/work
-frozenlist @ file:///D:/bld/frozenlist_1729699469760/work
-gitdb==4.0.11
-GitPython==3.1.43
-greenlet @ file:///D:/bld/greenlet_1726922289264/work
 groq @ file:///home/conda/feedstock_root/build_artifacts/groq_1731472276564/work
 h11 @ file:///home/conda/feedstock_root/build_artifacts/h11_1664132893548/work
 h2 @ file:///home/conda/feedstock_root/build_artifacts/h2_1634280454336/work
