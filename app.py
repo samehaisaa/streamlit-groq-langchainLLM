@@ -11,7 +11,6 @@ def main():
     # Custom CSS for chat bubbles and styling
     st.markdown("""
         <style>
-            .chat-container {
                 display: flex;
                 flex-direction: column;
                 align-items: flex-start;
