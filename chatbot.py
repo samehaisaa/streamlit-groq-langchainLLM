@@ -29,7 +29,6 @@ class GroqChatbot:
             HumanMessagePromptTemplate.from_template("{human_input}"),
         ])
 
-        # Create the conversation chain
         self.conversation = LLMChain(
             llm=self.groq_chat,
             prompt=self.prompt,
