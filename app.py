@@ -18,7 +18,6 @@ def main():
             }
             .chat-bubble {
                 padding: 10px 15px;
-                border-radius: 20px;
                 max-width: 80%;
                 margin-bottom: 10px;
                 background-color: #F1F1F1;
