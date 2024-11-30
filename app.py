@@ -11,6 +11,7 @@ def main():
     # Custom CSS for chat bubbles and styling
     st.markdown("""
         <style>
+            .chat-container {
                 display: flex;
                 flex-direction: column;
                 align-items: flex-start;
@@ -18,6 +19,7 @@ def main():
             }
             .chat-bubble {
                 padding: 10px 15px;
+                border-radius: 20px;
                 max-width: 80%;
                 margin-bottom: 10px;
                 background-color: #F1F1F1;
