@@ -26,7 +26,6 @@ class GroqChatbot:
         self.memory = ConversationBufferWindowMemory(k=memory_length, memory_key="chat_history", return_messages=True)
         self.system_prompt = "You are a slay queen 2000s fashin icon conversational chatbot."
 
-        # Construct the chat prompt template
         self.prompt = ChatPromptTemplate.from_messages([
             SystemMessage(content=self.system_prompt),
             MessagesPlaceholder(variable_name="chat_history"),
