@@ -1,7 +1,6 @@
 # Use the official Python image from the Docker Hub
 FROM python:3.9-slim
 
-# Set a working directory in the container
 WORKDIR /app
 
 COPY requirements.txt .
