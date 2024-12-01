@@ -51,7 +51,7 @@ def main():
     """, unsafe_allow_html=True)
 
     # App title
-    st.markdown("<h1 class='chat-title'>Groq Chatbot 🤖</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 class='chat-title'>Groq Slaybot 🤖</h1>", unsafe_allow_html=True)
     st.write("Hello! I'm your friendly Groq chatbot. Let's chat!")
 
     # Initialize chat history in session state if not present
