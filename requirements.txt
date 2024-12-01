@@ -7,9 +7,6 @@ httpx @ file:///home/conda/feedstock_root/build_artifacts/httpx_1724778349782/wo
 hyperframe @ file:///home/conda/feedstock_root/build_artifacts/hyperframe_1619110129307/work
 idna @ file:///home/conda/feedstock_root/build_artifacts/idna_1726459485162/work
 Jinja2==3.1.4
-jiter @ file:///D:/bld/jiter_1731437139025/work
-jsonpatch @ file:///home/conda/feedstock_root/build_artifacts/jsonpatch_1695536281965/work
-jsonpointer @ file:///D:/bld/jsonpointer_1725303007361/work
 jsonschema==4.23.0
 jsonschema-specifications==2024.10.1
 langchain @ file:///home/conda/feedstock_root/build_artifacts/langchain_1730512364468/work
