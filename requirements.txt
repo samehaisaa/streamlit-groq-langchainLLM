@@ -1,7 +1,6 @@
 groq @ file:///home/conda/feedstock_root/build_artifacts/groq_1731472276564/work
 h11 @ file:///home/conda/feedstock_root/build_artifacts/h11_1664132893548/work
 h2 @ file:///home/conda/feedstock_root/build_artifacts/h2_1634280454336/work
-hpack==4.0.0
 httpcore @ file:///home/conda/feedstock_root/build_artifacts/bld/rattler-build_httpcore_1731707562/work
 httpx @ file:///home/conda/feedstock_root/build_artifacts/httpx_1724778349782/work
 hyperframe @ file:///home/conda/feedstock_root/build_artifacts/hyperframe_1619110129307/work
