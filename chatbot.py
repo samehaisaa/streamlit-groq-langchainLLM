@@ -14,14 +14,15 @@ os.environ["GROQ_API_KEY"] = os.getenv("GROQ_API_KEY")
 os.environ["TOKENIZERS_PARALLELISM"] = "false"  
 
 class GroqChatbot:
-    def __init__(self, model="llama3-8b-8192", memory_length=5):
+    def __init__(self, model="llama-3.3-70b-versatile", memory_length=5):
         """
         Initialize the chatbot with model and memory settings.
         """
         groq_api_key = os.environ["GROQ_API_KEY"]
+        print(groq_api_key)
         self.groq_chat = ChatGroq(groq_api_key=groq_api_key, model_name=model)
         self.memory = ConversationBufferWindowMemory(k=memory_length, memory_key="chat_history", return_messages=True)
-        self.system_prompt = "You are a slay queen 2000s fashin icon conversational chatbot."
+        self.system_prompt = "you are a math tutor."
 
         self.prompt = ChatPromptTemplate.from_messages([
             SystemMessage(content=self.system_prompt),

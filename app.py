@@ -51,8 +51,8 @@ def main():
     """, unsafe_allow_html=True)
 
     # App title
-    st.markdown("<h1 class='chat-title'>Groq Slaybot 🤖</h1>", unsafe_allow_html=True)
-    st.write("Hello! I'm your friendly Groq chatbot. Let's chat!")
+    st.markdown("<h1 class='chat-title'>assistant🐍</h1>", unsafe_allow_html=True)
+    st.write("Hello how can i help ! ")
 
     # Initialize chat history in session state if not present
     if "chat_history" not in st.session_state:
